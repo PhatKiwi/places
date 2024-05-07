@@ -1,4 +1,5 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 
 import PlaceList from "../components/PlaceList";
 
@@ -32,5 +33,7 @@ const DUMMY_PLACES = [
 ];
 
 export default function UserPlaces() {
-  return <PlaceList items={DUMMY_PLACES} />;
+  const userId = useParams().userId;
+  const loadedPlaces = DUMMY_PLACES.filter((place) => userId === place.creator);
+  return <PlaceList items={loadedPlaces} />;
 }
