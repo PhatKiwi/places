@@ -9,7 +9,7 @@ import {
 import MainNavigation from "./shared/components/Navigation/MainNavigation";
 import Users from "./user/pages/Users";
 import UserPlaces from "./places/pages/UserPlaces";
-import NewPlace from "./places/pages/Place";
+import NewPlace from "./places/pages/NewPlace";
 
 function App() {
   return (
