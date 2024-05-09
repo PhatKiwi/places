@@ -58,7 +58,7 @@ export default function NewPlace() {
 
   function placeSubmitHandler(e) {
     e.preventDefault();
-    console.log(formState.inputs); // send this to the backend
+    console.log(formState.inputs); // TODO: send this to the backend
   }
 
   return (
