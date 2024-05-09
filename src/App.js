@@ -11,6 +11,7 @@ import Users from "./user/pages/Users";
 import UserPlaces from "./places/pages/UserPlaces";
 import UpdatePlace from "./places/pages/UpdatePlace";
 import NewPlace from "./places/pages/NewPlace";
+import Auth from "./user/pages/Auth";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Users />} />
+          <Route path="/auth" element={<Auth />} />
           <Route path="/places/new" element={<NewPlace />} />
           <Route path="/:userId/places" element={<UserPlaces />} />
           <Route path="/places/:placeId" element={<UpdatePlace />} />
