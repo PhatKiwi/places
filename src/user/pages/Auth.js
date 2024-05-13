@@ -51,9 +51,31 @@ export default function Auth() {
     setIsLoginMode((prevMode) => !prevMode);
   }
 
-  function authSubmitHandler(event) {
+  async function authSubmitHandler(event) {
     event.preventDefault();
-    console.log(formState.inputs); //TODO: actually log people in with backend
+
+    if (isLoginMode) {
+    } else {
+      try {
+        const response = await fetch("http://localhost:5001/api/users/signup", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: formState.inputs.name.value,
+            email: formState.inputs.email.value,
+            password: formState.inputs.email.value,
+          }),
+        });
+
+        const responseData = await response.json();
+        console.log(responseData);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+
     auth.login();
   }
   return (
@@ -95,7 +117,7 @@ export default function Auth() {
         </Button>
       </form>
       <Button inverse onClick={switchModeHandler}>
-        SWITCH TO {isLoginMode ? "LOGIN" : "SIGNUP"}
+        SWITCH TO {isLoginMode ? "SIGNUP" : "LOGIN"}
       </Button>
     </Card>
   );
