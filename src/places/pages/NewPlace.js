@@ -36,6 +36,7 @@ export default function NewPlace() {
   );
 
   const navigate = useNavigate();
+
   async function placeSubmitHandler(e) {
     e.preventDefault();
     try {
